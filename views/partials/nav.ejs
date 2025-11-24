@@ -13,12 +13,11 @@
         <li class="nav-item">
           <a class="nav-link" href="/app001/">Főoldal</a>
         </li>
-        <% if (currentUser && currentUser.role === 'admin') { %>
+
             <li class="nav-item">
                 <a class="nav-link" href="/app001/adatbazis">Adatbázis</a>
             </li>
-        <% } %>
-
+        
         <li class="nav-item">
           <a class="nav-link" href="/app001/kapcsolat">Kapcsolat</a>
         </li>
@@ -44,32 +43,51 @@
 
       </ul>
 
-      <ul class="navbar-nav">
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-        <% if (currentUser) { %>
-          <li class="nav-item">
-            <span class="navbar-text me-2">
-              Bejelentkezve: <strong><%= currentUser.username %></strong> (<%= currentUser.role %>)
-            </span>
-          </li>
+  <% if (currentUser) { %>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/app001/logout">Kilépés</a>
-          </li>
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle d-flex align-items-center"
+        href="#"
+        id="profilMenu"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          alt="Profil"
+          width="28"
+          height="28"
+          class="rounded-circle me-2"
+        >
+        <strong><%= currentUser.username %></strong>
+      </a>
 
-        <% } else { %>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/app001/login">Belépés</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/app001/register">Regisztráció</a>
-          </li>
-
-        <% } %>
-
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profilMenu">
+        <li class="dropdown-header">
+          Bejelentkezve: <strong><%= currentUser.username %></strong><br>
+          <small>Szerepkör: <%= currentUser.role %></small>
+        </li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="/app001/logout">Kilépés</a></li>
       </ul>
+    </li>
+
+  <% } else { %>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/app001/login">Belépés</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/app001/register">Regisztráció</a>
+    </li>
+
+  <% } %>
+</ul>
+
     </div>
 
   </div>

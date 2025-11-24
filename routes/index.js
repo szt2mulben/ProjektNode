@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   res.render('index', { title: 'Főoldal' });
 });
 
-router.get('/adatbazis',ensureAdmin , async (req, res) => {
+router.get('/adatbazis' , async (req, res) => {
   try {
     const [cpus] = await pool.query(
       'SELECT id, gyarto, tipus FROM processzor ORDER BY gyarto, tipus'
