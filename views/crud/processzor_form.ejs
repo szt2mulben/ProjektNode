@@ -1,0 +1,64 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container mb-5" style="max-width: 600px;">
+  <h1 class="mb-4">
+    <% if (mode === 'create') { %>
+      Új processzor felvitele
+    <% } else { %>
+      Processzor módosítása (ID: <%= cpu.id %>)
+    <% } %>
+  </h1>
+
+  <% if (error && error.length) { %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% } %>
+
+  <% if (mode === 'create') { %>
+    <form action="/app001/crud/processzor" method="post" class="card shadow-sm">
+  <% } else { %>
+    <form action="/app001/crud/processzor/<%= cpu.id %>?_method=PUT" method="post" class="card shadow-sm">
+  <% } %>
+
+    <div class="card-body">
+
+      <div class="mb-3">
+        <label for="gyarto" class="form-label">Gyártó</label>
+        <input
+          type="text"
+          class="form-control"
+          id="gyarto"
+          name="gyarto"
+          value="<%= cpu.gyarto %>"
+          required
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="tipus" class="form-label">Típus</label>
+        <input
+          type="text"
+          class="form-control"
+          id="tipus"
+          name="tipus"
+          value="<%= cpu.tipus %>"
+          required
+        >
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        <% if (mode === 'create') { %>
+          Mentés
+        <% } else { %>
+          Módosítás mentése
+        <% } %>
+      </button>
+
+      <a href="/app001/crud/processzor" class="btn btn-secondary ms-2">
+        Vissza a listához
+      </a>
+    </div>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>

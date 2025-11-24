@@ -1,0 +1,64 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container mb-5">
+  <h1 class="mb-4">Processzorok – CRUD (csak admin)</h1>
+
+  <p class="mb-3">
+    Az alábbi táblázat a <code>processzor</code> tábla adatait mutatja. 
+    Adminisztrátorként új rekordot vehetsz fel, illetve meglévő rekordokat módosíthatsz vagy törölhetsz.
+  </p>
+
+  <% if (success && success.length) { %>
+    <div class="alert alert-success"><%= success %></div>
+  <% } %>
+
+  <% if (error && error.length) { %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% } %>
+
+  <div class="mb-3">
+    <a href="/app001/crud/processzor/uj" class="btn btn-primary">
+      Új processzor felvitele
+    </a>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Gyártó</th>
+          <th scope="col">Típus</th>
+          <th scope="col" style="width: 180px;">Műveletek</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% cpus.forEach(cpu => { %>
+          <tr>
+            <td><%= cpu.id %></td>
+            <td><%= cpu.gyarto %></td>
+            <td><%= cpu.tipus %></td>
+            <td>
+              <a href="/app001/crud/processzor/<%= cpu.id %>/szerkesztes" 
+                 class="btn btn-sm btn-outline-secondary me-1">
+                Módosítás
+              </a>
+
+              <form action="/app001/crud/processzor/<%= cpu.id %>?_method=DELETE"
+                    method="post"
+                    style="display:inline-block;"
+                    onsubmit="return confirm('Biztosan törölni szeretnéd ezt a processzort?');">
+                <button type="submit" class="btn btn-sm btn-outline-danger">
+                  Törlés
+                </button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
