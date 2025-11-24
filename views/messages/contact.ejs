@@ -1,0 +1,87 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container mb-5" style="max-width: 700px;">
+  <h1 class="mb-4">Kapcsolat</h1>
+
+  <p class="mb-3">
+    Az alábbi űrlapon keresztül üzenetet küldhetsz az oldal üzemeltetőjének.
+    Ezután az üzemeltető felveszi veled a kapcsolatot!
+  </p>
+
+  <% if (success && success.length) { %>
+    <div class="alert alert-success"><%= success %></div>
+  <% } %>
+
+  <% if (error && error.length) { %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% } %>
+
+  <form action="/app001/kapcsolat" method="post" class="card shadow-sm">
+    <div class="card-body">
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Név</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Add meg a neved"
+          required
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">E-mail cím</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="email@example.com"
+          required
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="subject" class="form-label">Tárgy</label>
+        <input
+          type="text"
+          class="form-control"
+          id="subject"
+          name="subject"
+          placeholder="Miről szeretnél írni?"
+          required
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="body" class="form-label">Üzenet</label>
+        <textarea
+          class="form-control"
+          id="body"
+          name="body"
+          rows="6"
+          placeholder="Írd ide az üzeneted..."
+          required
+        ></textarea>
+      </div>
+
+      <% if (currentUser) { %>
+        <p class="text-muted small">
+          Bejelentkezve: <strong><%= currentUser.username %></strong>
+        </p>
+      <% } else { %>
+        <p class="text-muted small">
+          Nem vagy bejelentkezve – az üzeneted így is elküldhető.
+        </p>
+      <% } %>
+
+      <button type="submit" class="btn btn-primary">Üzenet elküldése</button>
+
+    </div>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>
