@@ -1,0 +1,84 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container mb-5">
+  <h1 class="mb-4">Admin vezérlőpult</h1>
+
+  <% if (success && success.length) { %>
+    <div class="alert alert-success"><%= success %></div>
+  <% } %>
+
+  <% if (error && error.length) { %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% } %>
+
+  <p class="mb-4">
+    Ez az adminisztrációs felület csak <strong>admin</strong> jogosultságú felhasználók számára elérhető.
+    Itt áttekintheted az oldal főbb adatait, és elérheted a fontosabb admin funkciókat.
+  </p>
+
+  <div class="row mb-4">
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title">Regisztrált felhasználók</h5>
+          <p class="display-6"><%= stats.userCount %></p>
+          <p class="text-muted small">
+            A <code>users</code> tábla alapján.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title">Beérkezett üzenetek</h5>
+          <p class="display-6"><%= stats.messageCount %></p>
+          <p class="text-muted small">
+            A <code>messages</code> táblában tárolt kapcsolatfelvételek száma.
+          </p>
+          <a href="/app001/uzenetek" class="btn btn-sm btn-outline-primary">
+            Üzenetek megnyitása
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title">Notebookok száma</h5>
+          <p class="display-6"><%= stats.laptopCount %></p>
+          <p class="text-muted small">
+            A <code>gep</code> tábla alapján.
+          </p>
+          <a href="/app001/adatbazis" class="btn btn-sm btn-outline-secondary">
+            Adatbázis megnyitása
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="mb-3">Admin funkciók</h2>
+
+  <div class="list-group mb-3">
+    <a href="/app001/adatbazis" class="list-group-item list-group-item-action">
+      📊 Adatbázis menü (gépek + processzorok + operációs rendszerek)
+    </a>
+    <a href="/app001/crud/processzor" class="list-group-item list-group-item-action">
+      🛠️ Processzorok CRUD (létrehozás, módosítás, törlés)
+    </a>
+    <a href="/app001/uzenetek" class="list-group-item list-group-item-action">
+      ✉️ Beérkezett üzenetek megtekintése
+    </a>
+  </div>
+
+  <p class="text-muted small">
+    A jogosultságkezelés az <code>ensureAdmin</code> middleware segítségével történik,
+    így az admin felület közvetlen URL megadásával sem érhető el normál felhasználók számára.
+  </p>
+</div>
+
+<%- include('../partials/footer') %>
