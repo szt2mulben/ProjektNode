@@ -19,10 +19,16 @@
             </li>
         <% } %>
 
-
         <li class="nav-item">
           <a class="nav-link" href="/app001/kapcsolat">Kapcsolat</a>
         </li>
+
+        <% if (currentUser) { %>
+            <li class="nav-item">
+             <a class="nav-link" href="/app001/uzenetek">Üzenetek</a>
+            </li>
+        <% } %>
+
 
         <li class="nav-item">
           <a class="nav-link" href="/app001/crud">CRUD menü</a>
