@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../config/db');
+const { ensureAdmin } = require('../middleware/auth');
 
 router.get('/', (req, res) => {
   res.render('index', { title: 'Főoldal' });
 });
 
-router.get('/adatbazis', async (req, res) => {
+router.get('/adatbazis',ensureAdmin , async (req, res) => {
   try {
     const [cpus] = await pool.query(
       'SELECT id, gyarto, tipus FROM processzor ORDER BY gyarto, tipus'
