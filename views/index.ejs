@@ -1,0 +1,239 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+
+<style>
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)),
+                url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1600&q=80')
+                center/cover no-repeat;
+    color: #fff;
+    padding: 110px 0 90px 0;
+  }
+  .hero-title {
+    font-size: 2.6rem;
+    font-weight: 700;
+  }
+  .hero-subtitle {
+    font-size: 1.25rem;
+    max-width: 600px;
+  }
+  .hero-badge {
+    background: rgba(255,255,255,0.1);
+    border-radius: 999px;
+    padding: 4px 16px;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .feature-icon {
+    font-size: 2rem;
+  }
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  .stat-label {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: .08em;
+    color: #6c757d;
+  }
+</style>
+
+<section class="hero mb-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <div class="hero-badge mb-3">
+          <span class="badge bg-success me-1"></span>
+          ReNew Kft. – felújított notebookok garanciával
+        </div>
+        <h1 class="hero-title mb-3">
+          Megbízható, felújított notebookok<br>új életre keltve.
+        </h1>
+        <p class="hero-subtitle mb-4">
+          A ReNew Kft. Seholország „fővárosában” működő informatikai vállalkozás, 
+          amely kizárólag gyárilag felújított, bevizsgált notebookokat értékesít
+          <strong>kedvező áron</strong>, teljes körű garanciával és hivatalos számlával.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <a href="/app001/adatbazis" class="btn btn-success btn-lg">
+            Gépkínálat megtekintése
+          </a>
+          <a href="/app001/register" class="btn btn-outline-light btn-lg">
+            Regisztráció / Belépés
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-5 mt-4 mt-lg-0">
+        <div class="card bg-light text-dark shadow-lg border-0">
+          <div class="card-body">
+            <h5 class="card-title mb-3">Mi az a ReNew-minősítés?</h5>
+            <p class="mb-2">
+              Minden notebook több lépcsős diagnosztikai vizsgálaton megy át:
+            </p>
+            <ul class="mb-3">
+              <li>részletes hardver teszt (CPU, RAM, SSD/HDD, GPU)</li>
+              <li>akkumulátor-állapot felmérés</li>
+              <li>tisztítás, portalanítás, pasztacsere szükség esetén</li>
+              <li>friss, jogtiszta operációs rendszer telepítés</li>
+            </ul>
+            <p class="mb-0">
+              Az adatbázisodban tárolt gépek mind <strong>valós konfigurációkat</strong> tükröznek,
+              az árak pedig a gyakorlati feladat kedvéért lettek kialakítva.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-6">
+        <h2 class="mb-3">Kik vagyunk?</h2>
+        <p class="lead">
+          A ReNew Kft. olyan ügyfelekre specializálódott, akiknek fontos a 
+          <strong>megbízhatóság</strong>, de nem szeretnének új notebookokra költeni.
+        </p>
+        <p>
+          Csapatunk napi szinten foglalkozik vállalati flottákból vagy bemutatótermekből
+          származó gépek átvizsgálásával, felújításával és értékesítésével. 
+          Minden készülék egyedi azonosítót kap, így az adatbázisban könnyen követhető:
+          milyen processzorral, mennyi memóriával, mekkora háttértárral és milyen
+          operációs rendszerrel került forgalomba.
+        </p>
+        <p>
+          Az alkalmazásod lehetővé teszi, hogy az ügyintézők és az adminisztrátorok 
+          <strong>átláthatóan kezeljék</strong> a gépkínálatot, a processzor- és 
+          operációs rendszer-listát, valamint az ügyfelektől érkező üzeneteket.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body text-center">
+                <div class="feature-icon mb-2">💻</div>
+                <h5 class="card-title">Felújított prémium gépek</h5>
+                <p class="card-text small">
+                  Csak bevizsgált, vállalati kategóriás notebookok, 
+                  részletes műszaki leírással.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body text-center">
+                <div class="feature-icon mb-2">🛡️</div>
+                <h5 class="card-title">Garancia & támogatás</h5>
+                <p class="card-text small">
+                  Minden eladott gép garanciával és választható 
+                  kiterjesztett szervizcsomaggal kerül átadásra.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body text-center">
+                <div class="feature-icon mb-2">💾</div>
+                <h5 class="card-title">Valós technikai adatok</h5>
+                <p class="card-text small">
+                  Az adatbázis a processzor, RAM, háttértár, 
+                  videovezérlő és operációs rendszer adatait tárolja.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body text-center">
+                <div class="feature-icon mb-2">⚙️</div>
+                <h5 class="card-title">Webes admin felület</h5>
+                <p class="card-text small">
+                  Az alkalmazásban CRUD funkciókkal kezelheted a termékeket,
+                  és külön admin menü segíti a karbantartást.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light py-4 mb-5">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-4 mb-3 mb-md-0">
+        <div class="stat-number">3+</div>
+        <div class="stat-label">Kapcsolt tábla az adatbázisban</div>
+        <small>processzor, operációs rendszer, gépek</small>
+      </div>
+      <div class="col-md-4 mb-3 mb-md-0">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Felújított eszköz</div>
+        <small>újratelepített, letesztelt konfigurációk</small>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Webes elérés</div>
+        <small>Node.js alapú online adminisztrációs felület</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-6">
+        <h2 class="mb-3">Hogyan működik a rendszer?</h2>
+        <ol>
+          <li><strong>Felvitel</strong> – az admin vagy az ügyintéző új gépeket rögzít a rendszerben.</li>
+          <li><strong>Kapcsolatok</strong> – a notebookok a processzor- és oprendszer-táblákhoz kapcsolódnak.</li>
+          <li><strong>Listázás</strong> – az „Adatbázis” menüben a felhasználók áttekinthetik a kínálatot.</li>
+          <li><strong>Üzenetek</strong> – a „Kapcsolat” menüponton keresztül az érdeklődők üzenetet küldhetnek.</li>
+          <li><strong>Jogosultságok</strong> – látogató, regisztrált felhasználó és admin külön felületet lát.</li>
+        </ol>
+      </div>
+      <div class="col-lg-6">
+        <h3 class="mb-3">Kinek ajánljuk?</h3>
+        <ul>
+          <li>Kis- és középvállalkozásoknak, akik flottában vásárolnának notebookokat.</li>
+          <li>Oktatási intézményeknek, ahol sok gépre van szükség alacsonyabb áron.</li>
+          <li>Magánszemélyeknek, akik megbízható, de kedvező árú laptopot keresnek.</li>
+        </ul>
+        <p>
+          A webalkalmazás célja nem csak az, hogy bemutassa a gépeket, 
+          hanem az is, hogy <strong>valós fejlesztési környezetet</strong> biztosítson:
+          authentikációval, szerepkörökkel, adatbázis-kapcsolattal és adminisztrációs funkciókkal.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-dark text-light">
+  <div class="container text-center">
+    <h2 class="mb-3">Készen állsz felfedezni a ReNew notebook kínálatát?</h2>
+    <p class="mb-4">
+      Regisztrálj az oldalra, lépj be, és próbáld ki a teljes funkcionalitást:
+      adatbázis nézet, CRUD menü, kapcsolatfelvétel és adminisztráció.
+    </p>
+    <a href="/app001/adatbazis" class="btn btn-success btn-lg me-2 mb-2">
+      Adatbázis megtekintése
+    </a>
+    <a href="/app001/register" class="btn btn-outline-light btn-lg mb-2">
+      Regisztráció
+    </a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

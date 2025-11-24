@@ -8,6 +8,8 @@ const flash = require('connect-flash');
 const methodOverride = require('method-override');
 const pool = require('./config/db');
 const initPassport = require('./config/passport');
+const { ensureAuthenticated, ensureAdmin } = require('./middleware/auth');
+
 
 const app = express();
 
